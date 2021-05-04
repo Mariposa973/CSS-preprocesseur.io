@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+  font-family: "Fondamento", cursive;
+}
+body{
+  background-color: #d8d8d6;
+}
+.main-section {
+  font-size: 40px;
+}
+
+nav {
+  @extend %orange-graphic;
+}
+.footer-custom {
+  @extend %orange-graphic;
+}
+.ring-container {
+  margin: 5% auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.row {
+  display: inline-flex;
+}
+%orange-graphic {
+  background-color: #ff5e01;
+  color: #f3f2e9;
+}
+@mixin ring($size, $borderSize, $borderColor) {
+  border-radius: $size;
+  height: $size;
+  width: $size;
+  border: solid $borderSize $borderColor;
+  margin: 0.5em;
+  box-shadow: inset 5px 5px 15px rgba(0,0,0,0.5);// #333333;
+  background-color: #1fe0; 
+}
+
+@for $i from 1 through 6 {
+  .ring-#{$i} {
+    @include ring(20px * $i, 1px * $i, #333333);
+    margin: -2px * $i;
+  }
+}
+
+.double-ring {
+  @include ring(50px, 5px, #ff6905);
+}
+.biggest-ring {
+  @include ring(200px, 15px, #fcca02);
+}
